@@ -9,4 +9,4 @@
 - display/hide submenu
 - change location of submenu based on hovered menu item
 - retrieve items for each menu button
-- change width of the submenu container based on links count
+- change width of the submenu container based on links co

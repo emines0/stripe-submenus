@@ -18,6 +18,12 @@ const Submenu = () => {
     submenu.style.top = `${bottom}px`
     setColumns(links.length)
   }, [location])
+  /*
+   * get the container
+   * get the center, bottom from location
+   * set the inline css of submenu left, top
+   * set columns length based on links count
+   */
 
   return (
     <aside
