@@ -6,6 +6,27 @@ import { useGlobalContext } from './context'
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext()
 
+  const displaySubmenu = (e) => {
+    const page = e.target.textContent
+    /*
+     * return a text which is in the hovered button
+     */
+    const tempBtn = e.target.getBoundingClientRect()
+    /*
+     * return coordinates of the hovered button
+     */
+    const center = (tempBtn.left + tempBtn.right) / 2
+    /*
+     * return center of the hovered button
+     */
+    const bottom = tempBtn.bottom - 3
+    /*
+     * return bottom of the hovered button - 3px
+     * the sidebar is located 3px under the button
+     */
+    openSubmenu(page, { center, bottom })
+  }
+
   return (
     <nav className='nav'>
       <div className='nav-center'>
@@ -17,16 +38,24 @@ const Navbar = () => {
         </div>
         <ul className='nav-links'>
           <li>
-            <button className='link-btn'>products</button>
+            <button className='link-btn' onMouseOver={displaySubmenu}>
+              products
+            </button>
           </li>
           <li>
-            <button className='link-btn'>developers</button>
+            <button className='link-btn' onMouseOver={displaySubmenu}>
+              developers
+            </button>
           </li>
           <li>
-            <button className='link-btn'>company</button>
+            <button className='link-btn' onMouseOver={displaySubmenu}>
+              company
+            </button>
           </li>
         </ul>
-        <button className='btn signin-btn'>Sign in</button>
+        <button className='btn signin-btn' onMouseOver={displaySubmenu}>
+          Sign in
+        </button>
       </div>
     </nav>
   )
